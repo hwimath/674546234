@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <title>지수방정식(기본)</title>
+  <!-- MathJax 설정: 인라인 수식은 $…$ 또는 \(...\) 사용 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
   <!-- MathJax 로드 -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
   <style>
@@ -110,211 +118,209 @@
    ******************************************************/
   const questionsData = [
     {
-      question: "\\((\\tfrac12)^{-x+1} = 4\\)에서 \\(x\\)의 값은?",
-      options: ["2","3","4","5"],
-      answer: 1,  // 정답: "3"
+      question: "$\\left(\\tfrac{1}{2}\\right)^{-x+1} = 4$에서 $x$의 값은?",
+      options: ["2", "3", "4", "5"],
+      answer: 1,
       condition: ""
     },
     {
-      question: "\\(3^x = \\dfrac{1}{27}\\)에서 \\(x\\)의 값은?",
-      options: ["-3","-2","2","3"],
+      question: "$3^x = \\dfrac{1}{27}$에서 $x$의 값은?",
+      options: ["-3", "-2", "2", "3"],
       answer: 0
     },
     {
-      question: "\\(2^{2x} = 2\\sqrt2\\)에서 \\(x\\)의 값은?",
-      options: ["\\(\\tfrac12\\)","\\(\\tfrac34\\)","1","\\(\\tfrac32\\)"],
+      question: "$2^{2x} = 2\\sqrt{2}$에서 $x$의 값은?",
+      options: ["$\\tfrac{1}{2}$", "$\\tfrac{3}{4}$", "1", "$\\tfrac{3}{2}$"],
       answer: 1
     },
     {
-      question: "\\(4\\cdot 2^x = 4^x\\)에서 \\(x\\)의 값은?",
-      options: ["1","2","3","4"],
+      question: "$4 \\cdot 2^x = 4^x$에서 $x$의 값은?",
+      options: ["1", "2", "3", "4"],
       answer: 1
     },
     {
-      question: "\\(2^x = 128\\)에서 \\(x\\)의 값은?",
-      options: ["5","6","7","8"],
+      question: "$2^x = 128$에서 $x$의 값은?",
+      options: ["5", "6", "7", "8"],
       answer: 2
     },
     {
-      question: "\\(\\bigl(\\tfrac14\\bigr)^x = 2\\)에서 \\(x\\)의 값은?",
-      options: ["-2","-\\tfrac12","\\tfrac12","2"],
+      question: "$\\bigl(\\tfrac{1}{4}\\bigr)^x = 2$에서 $x$의 값은?",
+      options: ["-2", "$-\\tfrac{1}{2}$", "$\\tfrac{1}{2}$", "2"],
       answer: 1
     },
     {
-      question: "\\(4^{x+1} = 16\\)에서 \\(x\\)의 값은?",
-      options: ["1","2","3","4"],
+      question: "$4^{x+1} = 16$에서 $x$의 값은?",
+      options: ["1", "2", "3", "4"],
       answer: 0
     },
     {
-      question: "\\(3^{x-1} = 9^x\\)에서 \\(x\\)의 값은?",
-      options: ["-1","0","1","2"],
+      question: "$3^{x-1} = 9^x$에서 $x$의 값은?",
+      options: ["-1", "0", "1", "2"],
       answer: 0
     },
     {
-      question: "\\(27^x = 243\\)에서 \\(x\\)의 값은?",
-      options: ["1","\\(\\tfrac53\\)","2","3"],
+      question: "$27^x = 243$에서 $x$의 값은?",
+      options: ["1", "$\\tfrac{5}{3}$", "2", "3"],
       answer: 1
     },
     {
-      question: "\\(2^{2x-1} = 8\\cdot 2^x\\)에서 \\(x\\)의 값은?",
-      options: ["2","3","4","5"],
+      question: "$2^{2x-1} = 8 \\cdot 2^x$에서 $x$의 값은?",
+      options: ["2", "3", "4", "5"],
       answer: 2
     },
     {
-      question: "\\(5^x = (0.2)^{x+2}\\)에서 \\(x\\)의 값은?",
-      options: ["-2","-1","1","2"],
+      question: "$5^x = (0.2)^{x+2}$에서 $x$의 값은?",
+      options: ["-2", "-1", "1", "2"],
       answer: 1
     },
     {
-      question: "\\(9^{x+2} = 27\\times 3^{x+1}\\)에서 \\(x\\)의 값은?",
-      options: ["-1","0","1","2"],
+      question: "$9^{x+2} = 27 \\times 3^{x+1}$에서 $x$의 값은?",
+      options: ["-1", "0", "1", "2"],
       answer: 1
     },
     {
-      question: "\\(3^{2x+1} = \\bigl(\\dfrac{\\sqrt3}{3}\\bigr)^x\\)에서 \\(x\\)의 값은?",
-      options: ["-1","-\\tfrac45","-\\tfrac25","\\tfrac13"],
+      question: "$3^{2x+1} = \\bigl(\\dfrac{\\sqrt{3}}{3}\\bigr)^x$에서 $x$의 값은?",
+      options: ["-1", "$-\\tfrac{4}{5}$", "$-\\tfrac{2}{5}$", "$\\tfrac{1}{3}$"],
       answer: 2
     },
     {
-      question: "\\(\\bigl(\\dfrac1{9}\\bigr)^x = 27^{x-5}\\)에서 \\(x\\)의 값은?",
-      options: ["1","2","3","4"],
+      question: "$\\bigl(\\dfrac{1}{9}\\bigr)^x = 27^{x-5}$에서 $x$의 값은?",
+      options: ["1", "2", "3", "4"],
       answer: 2
     },
     {
-      question: "\\(4^{x+3} = 8^{x-1}\\)에서 \\(x\\)의 값은?",
-      options: ["3","6","8","9"],
+      question: "$4^{x+3} = 8^{x-1}$에서 $x$의 값은?",
+      options: ["3", "6", "8", "9"],
       answer: 3
     },
     {
-      question: "\\(\\bigl(\\dfrac1{8}\\bigr)^{x+2} = \\bigl(\\dfrac1{32}\\bigr)^{x}\\)에서 \\(x\\)의 값은?",
-      options: ["2","3","4","5"],
+      question: "$\\bigl(\\dfrac{1}{8}\\bigr)^{x+2} = \\bigl(\\dfrac{1}{32}\\bigr)^x$에서 $x$의 값은?",
+      options: ["2", "3", "4", "5"],
       answer: 1
     },
     {
-      question: "\\(125^{3-x} = \\Bigl(\\dfrac1{25}\\Bigr)^{2x-1}\\)에서 \\(x\\)의 값은?",
-      options: ["-5","-4","-7","1"],
+      question: "$125^{3-x} = \\Bigl(\\dfrac{1}{25}\\Bigr)^{2x-1}$에서 $x$의 값은?",
+      options: ["-5", "-4", "-7", "1"],
       answer: 2
     },
     {
-      question: "\\(3^{2x-1} = \\bigl(\\dfrac1{3}\\bigr)^{1-2x}\\)에서 \\(x\\)의 해는?",
-      options: ["해 없음","모든 실수","0","1"],
+      question: "$3^{2x-1} = \\bigl(\\dfrac{1}{3}\\bigr)^{1-2x}$에서 $x$의 해는?",
+      options: ["해 없음", "모든 실수", "0", "1"],
       answer: 1
     },
     {
-      question: "\\(\\Bigl(\\dfrac32\\Bigr)^{x^2 -5x} = \\Bigl(\\dfrac23\\Bigr)^{4x-6}\\)에서 \\(x\\)의 값은?",
-      options: ["-2 와 3","-1 와 2","-2 만","3 만"],
+      question: "$\\Bigl(\\dfrac{3}{2}\\Bigr)^{x^2-5x} = \\Bigl(\\dfrac{2}{3}\\Bigr)^{4x-6}$에서 $x$의 값은?",
+      options: ["-2와 3", "-1과 2", "-2만", "3만"],
       answer: 0
     },
     {
-      question: "\\(2^x + 2^{-x} = 2\\)에서 \\(x\\)의 값은?",
-      options: ["-1","0","1","2"],
+      question: "$2^x+2^{-x}=2$에서 $x$의 값은?",
+      options: ["-1", "0", "1", "2"],
       answer: 1
     },
     {
-      question: "\\(2^{2x} + 3\\cdot 2^{-x} - 10 = 0\\)에서 \\(x\\)의 값은?",
-      options: ["\\(\\log_2(2)\\)","\\(\\log_2(3)\\)","1","2"],
+      question: "$2^{2x}+3\\cdot2^{-x}-10=0$에서 $x$의 값은?",
+      options: ["$\\log_2(2)$", "$\\log_2(3)$", "1", "2"],
       answer: 1
     },
     {
-      question: "\\(2\\cdot 3^{2x} - 5\\cdot 3^x - 3=0\\)에서 \\(x\\)의 값은?",
-      options: ["-1","0","1","2"],
+      question: "$2\\cdot3^{2x}-5\\cdot3^x-3=0$에서 $x$의 값은?",
+      options: ["-1", "0", "1", "2"],
       answer: 2
     },
     {
-      question: "\\(3^x + 3^{2-x} = 10\\)에서 \\(x\\)의 값은?",
-      options: ["0와 2","1과 2","2와 3","0과 1"],
+      question: "$3^x+3^{2-x}=10$에서 $x$의 값은?",
+      options: ["0와 2", "1과 2", "2와 3", "0과 1"],
       answer: 0
     },
     {
-      question: "\\(\\bigl(\\dfrac1{9}\\bigr)^{x-1} - 3^{2-x} - 54 = 0\\)에서 \\(x\\)의 값은?",
-      options: ["-2","-1","1","2"],
+      question: "$\\bigl(\\dfrac{1}{9}\\bigr)^{x-1}-3^{2-x}-54=0$에서 $x$의 값은?",
+      options: ["-2", "-1", "1", "2"],
       answer: 1
     },
     {
-      question: "\\(3^x - 2\\cdot 3^{2-x} = -3\\)에서 \\(x\\)의 값은?",
-      options: ["0","1","2","3"],
+      question: "$3^x-2\\cdot3^{2-x}=-3$에서 $x$의 값은?",
+      options: ["0", "1", "2", "3"],
       answer: 1
     },
     {
-      question: "\\(2^{2x} + 3\\times 2^x -4=0\\)에서 \\(x\\)의 값은?",
-      options: ["0","1","2","3"],
+      question: "$2^{2x}+3\\times2^x-4=0$에서 $x$의 값은?",
+      options: ["0", "1", "2", "3"],
       answer: 0
     },
     {
-      question: "\\(4^x - 9\\cdot 2^x +8=0\\)에서 해 \\(x\\)는?",
-      options: ["0과 3","1과 2","2와 3","0과 2"],
+      question: "$4^x-9\\cdot2^x+8=0$에서 해 $x$는?",
+      options: ["0과 3", "1과 2", "2와 3", "0과 2"],
       answer: 0
     },
     {
-      question: "((단, \\(x\\ge -\\tfrac12\\))) \\((x+3)^{x-1} = (2x+1)^{x-1}\\)에서 해 \\(x\\)?",
-      options: ["1과 2","0과 1","1만","2만"],
+      question: "((단, $x \\ge -\\tfrac{1}{2}$)) $(x+3)^{x-1} = (2x+1)^{x-1}$에서 해 $x$는?",
+      options: ["1과 2", "0과 1", "1만", "2만"],
       answer: 0
     },
     {
-      question: "((단, \\(x>0\\))) \\(x^{2x+1} = x^{-x+4}\\)에서 \\(x\\)의 값은?",
-      options: ["1","2","3","4"],
+      question: "((단, $x>0$)) $x^{2x+1} = x^{-x+4}$에서 $x$의 값은?",
+      options: ["1", "2", "3", "4"],
       answer: 0
     },
     {
-      question: "((단, \\(x>2\\))) \\((x-2)^{x-5} = 4^{x-5}\\)에서 해 \\(x\\)?",
-      options: ["3과 6","4와 5","5와 6","5만"],
+      question: "((단, $x>2$)) $(x-2)^{x-5} = 4^{x-5}$에서 해 $x$는?",
+      options: ["3과 6", "4와 5", "5와 6", "5만"],
       answer: 2
     },
     {
-      question: "((단, \\(x>0\\))) \\((x^2) = x^{-x+1}\\)에서 해 \\(x\\)?",
-      options: ["1","2","4","해 없음"],
+      question: "((단, $x>0$)) $x^2 = x^{-x+1}$에서 해 $x$는?",
+      options: ["1", "2", "4", "해 없음"],
       answer: 0
     },
     {
-      question: "((단, \\(x>-2\\))) \\((x+2)^x = 3^x\\)에서 해 \\(x\\)?",
-      options: ["0과 1","1과 2","2와 3","0만"],
+      question: "((단, $x>-2$)) $(x+2)^x = 3^x$에서 해 $x$는?",
+      options: ["0과 1", "1과 2", "2와 3", "0만"],
       answer: 0
     },
     {
-      question: "((단, \\(x>1\\))) \\((x-1)^{x-3} = 6^{x-3}\\)에서 해 \\(x\\)?",
-      options: ["2와 3","3과 7","7만","3만"],
+      question: "((단, $x>1$)) $(x-1)^{x-3} = 6^{x-3}$에서 해 $x$는?",
+      options: ["2와 3", "3과 7", "7만", "3만"],
       answer: 1
     },
     {
-      question: "\\(y=7^x + 7^{2-x}\\)가 \\(x=a\\)에서 최소값 \\(b\\)를 가질 때, \\(a+b\\)의 값은?",
-      options: ["13","14","15","16"],
+      question: "$y=7^x+7^{2-x}$가 $x=a$에서 최소값 $b$를 가질 때, $a+b$의 값은?",
+      options: ["13", "14", "15", "16"],
       answer: 2
     },
     {
-      question: "방정식 \\(10^x = \\Bigl(\\dfrac1{1000}\\Bigr)^{1-x}\\)의 근을 \\(\\alpha\\)라 할 때, \\(4^\\alpha + 27^{\\tfrac1\\alpha}\\)의 값은?",
-      options: ["8","9","15","17"],
+      question: "방정식 $10^x=\\Bigl(\\dfrac{1}{1000}\\Bigr)^{1-x}$의 근을 $\\alpha$라 할 때, $4^\\alpha+27^{\\tfrac{1}{\\alpha}}$의 값은?",
+      options: ["8", "9", "15", "17"],
       answer: 3
     },
     {
-      question: "((단, \\(x>0\\))) \\(x^{x+2} = x^{x^2}\\)를 만족하는 \\(x\\)의 합은?",
-      options: ["1","2","3","없음"],
-      answer: 1
+      question: "((단, $x>0$)) $x^{x+2}=x^{x^2}$를 만족하는 $x$의 합은?",
+      options: ["1", "2", "3", "없음"],
+      answer: 2
     }
   ];
 
   // --- 전역 변수 ---
   let currentQuestionIndex = -1;   // 현재 문제 인덱스
   let usedQuestionsCount = 0;      // 전체 문제를 몇 개 소진했는지
-  let totalQuestions = questionsData.length; // 고정 36개
+  let totalQuestions = questionsData.length;
   let score = 0;
   let chances = 3;
-  let gameStartTime = 0;     // 게임 시작 시각(초)
-  let elapsedTimeInterval;   // 전체 경과 시간 타이머
-  let questionTimer;         // 문제별 타이머
-  let questionTimeLimit = 0; // 난이도별 문제 시간(초) (0이면 무제한)
-  let difficultyScore = 10;  // 난이도별 점수
+  let gameStartTime = 0;           // 게임 시작 시각(초)
+  let elapsedTimeInterval;         // 전체 경과 시간 타이머
+  let questionTimer;               // 문제별 타이머
+  let questionTimeLimit = 0;       // 난이도별 문제 시간(초) (0이면 무제한)
+  let difficultyScore = 10;        // 난이도별 점수
   let isGameOver = false;
 
   // --- 난이도 설정 ---
-  function selectDifficulty(level){
+  function selectDifficulty(level) {
     const nameField = document.getElementById("userName");
-    if(!nameField.value.trim()){
+    if (!nameField.value.trim()) {
       alert("이름을 입력해주세요.");
       return;
     }
-
-    // 난이도별 초기 설정
-    switch(level){
+    switch (level) {
       case 'top':
         questionTimeLimit = 20;
         difficultyScore = 20;
@@ -333,16 +339,14 @@
         difficultyScore = 10;
         break;
     }
-
     document.getElementById("start-screen").classList.add("hidden");
     document.getElementById("game-screen").classList.remove("hidden");
-
-    shuffleArray(questionsData);  // 문제 순서를 섞어줌
+    shuffleArray(questionsData);
     startGame();
   }
 
   // --- 게임 시작 ---
-  function startGame(){
+  function startGame() {
     score = 0;
     chances = 3;
     usedQuestionsCount = 0;
@@ -350,207 +354,165 @@
     document.getElementById("remaining-chances").innerText = chances;
     document.getElementById("current-score").innerText = score;
     document.getElementById("feedback").innerText = "";
-
-    gameStartTime = Date.now(); 
-    elapsedTimeInterval = setInterval(updateElapsedTime,1000);
-
+    gameStartTime = Date.now();
+    elapsedTimeInterval = setInterval(updateElapsedTime, 1000);
     loadNextQuestion();
   }
 
   // --- 전체 경과 시간 표시 ---
-  function updateElapsedTime(){
+  function updateElapsedTime() {
     const now = Date.now();
-    const diffSec = Math.floor((now - gameStartTime)/1000);
+    const diffSec = Math.floor((now - gameStartTime) / 1000);
     document.getElementById("elapsed-time").innerText = diffSec;
   }
 
   // --- 문제 로드 ---
-  function loadNextQuestion(){
-    if(isGameOver) return;
-
-    if(chances <= 0){
+  function loadNextQuestion() {
+    if (isGameOver) return;
+    if (chances <= 0) {
       endGame();
       return;
     }
-
-    // 만약 모든 문제를 한 번씩 다 냈으면, 그 다음부터는 계속 랜덤으로 출제
-    // 여기서는 인덱스 하나씩 증가해서 totalQuestions 넘어가면 다시 섞어서 0부터
     currentQuestionIndex++;
-    if(currentQuestionIndex >= totalQuestions){
-      // 이미 한 바퀴 다 돌았음 → 무한 랜덤
-      currentQuestionIndex = Math.floor(Math.random()*totalQuestions);
+    if (currentQuestionIndex >= totalQuestions) {
+      currentQuestionIndex = Math.floor(Math.random() * totalQuestions);
     }
     usedQuestionsCount++;
-
     const questionObj = questionsData[currentQuestionIndex];
-
     document.getElementById("feedback").innerText = "";
     document.getElementById("question-text").innerHTML =
-      "<p>"+questionObj.question+"</p>"+
-      (questionObj.condition ? "<p>"+questionObj.condition+"</p>" : "");
-
-    // 보기 출력
+      "<p>" + questionObj.question + "</p>" + (questionObj.condition ? "<p>" + questionObj.condition + "</p>" : "");
     const optsDiv = document.getElementById("options-container");
     optsDiv.innerHTML = "";
-    const arrIdx = [0,1,2,3];
-    shuffleArray(arrIdx); // 보기 렌더 순서 섞고 싶으면 여기 써도 됨(지문 내 미니 셔플)
-
-    for(let i=0; i<4; i++){
-      let idx = i; 
-      // 단순 0,1,2,3 순서로 버튼
+    const arrIdx = [0, 1, 2, 3];
+    shuffleArray(arrIdx);
+    for (let i = 0; i < 4; i++) {
       const btn = document.createElement("button");
       btn.className = "option-button";
       btn.onclick = () => checkAnswer(i);
-      btn.innerHTML = "\\("+questionObj.options[i]+"\\)";
+      btn.innerHTML = questionObj.options[i].includes("$")
+        ? questionObj.options[i]
+        : "$" + questionObj.options[i] + "$";
       optsDiv.appendChild(btn);
     }
-
-    // 매 문제마다 MathJax 렌더링
     MathJax.typeset();
-
-    // 시간 제한 에너지바 설정
     resetEnergyBar();
-    if(questionTimer) clearInterval(questionTimer);
-    if(questionTimeLimit>0){
+    if (questionTimer) clearInterval(questionTimer);
+    if (questionTimeLimit > 0) {
       let timeLeft = questionTimeLimit;
-      questionTimer = setInterval(()=>{
+      questionTimer = setInterval(() => {
         timeLeft--;
         updateEnergyBar(timeLeft);
-        if(timeLeft <= 0){
-          // 시간 초과
+        if (timeLeft <= 0) {
           clearInterval(questionTimer);
           timeOverAction();
         }
-      },1000);
-    }else{
-      // 하 난이도(무제한) 처리
-      updateEnergyBar(questionTimeLimit); 
+      }, 1000);
+    } else {
+      updateEnergyBar(questionTimeLimit);
     }
   }
 
   // --- 시간 초과 시 처리 ---
-  function timeOverAction(){
+  function timeOverAction() {
     chances--;
     document.getElementById("remaining-chances").innerText = chances;
     loadNextQuestion();
   }
 
-  // --- 정답확인 ---
-  function checkAnswer(selectedIndex){
-    if(isGameOver) return;
+  // --- 정답 확인 ---
+  function checkAnswer(selectedIndex) {
+    if (isGameOver) return;
     const questionObj = questionsData[currentQuestionIndex];
-    // 시간 정지
-    if(questionTimer) clearInterval(questionTimer);
-
+    if (questionTimer) clearInterval(questionTimer);
     const feedbackEl = document.getElementById("feedback");
-    if(selectedIndex === questionObj.answer){
-      // 정답
+    if (selectedIndex === questionObj.answer) {
       score += difficultyScore;
       document.getElementById("current-score").innerText = score;
       feedbackEl.innerText = "정답입니다!";
     } else {
-      // 오답
-      feedbackEl.innerText = "틀렸습니다. 정답: "+ 
-        "\\("+ questionObj.options[questionObj.answer] +"\\)";
+      feedbackEl.innerText = "틀렸습니다. 정답: $" + questionObj.options[questionObj.answer] + "$";
       chances--;
       document.getElementById("remaining-chances").innerText = chances;
     }
-    // 수식 렌더링
     MathJax.typeset();
-
-    if(chances <= 0){
+    if (chances <= 0) {
       endGame();
     } else {
-      // 다음 문제
       setTimeout(loadNextQuestion, 1500);
     }
   }
 
   // --- 에너지바 초기화 ---
-  function resetEnergyBar(){
-    const barFill = document.getElementById("energy-bar-fill");
-    barFill.style.width = "100%";
+  function resetEnergyBar() {
+    document.getElementById("energy-bar-fill").style.width = "100%";
   }
 
   // --- 에너지바 업데이트 ---
-  function updateEnergyBar(timeLeft){
-    if(questionTimeLimit===0){
-      // 무제한
-      document.getElementById("energy-bar-fill").style.width = "0%"; 
+  function updateEnergyBar(timeLeft) {
+    if (questionTimeLimit === 0) {
+      document.getElementById("energy-bar-fill").style.width = "0%";
       return;
     }
     const pct = (timeLeft / questionTimeLimit) * 100;
-    document.getElementById("energy-bar-fill").style.width = pct+"%";
+    document.getElementById("energy-bar-fill").style.width = pct + "%";
   }
 
   // --- 게임 종료 ---
-  function endGame(){
+  function endGame() {
     isGameOver = true;
-    if(elapsedTimeInterval) clearInterval(elapsedTimeInterval);
-    if(questionTimer) clearInterval(questionTimer);
-
+    if (elapsedTimeInterval) clearInterval(elapsedTimeInterval);
+    if (questionTimer) clearInterval(questionTimer);
     document.getElementById("game-screen").classList.add("hidden");
     document.getElementById("end-screen").classList.remove("hidden");
-
     document.getElementById("final-score").innerText = score;
     const now = Date.now();
-    const totalSec = Math.floor((now - gameStartTime)/1000);
+    const totalSec = Math.floor((now - gameStartTime) / 1000);
     document.getElementById("final-time").innerText = totalSec;
   }
 
   // --- 점수 서버 전송 ---
-  function sendScore(){
+  function sendScore() {
     const now = Date.now();
-    const totalSec = Math.floor((now - gameStartTime)/1000);
+    const totalSec = Math.floor((now - gameStartTime) / 1000);
     const nameVal = document.getElementById("userName").value.trim();
     saveData("지수방정식(기본)", nameVal, score, totalSec);
   }
 
   // --- 서버에 POST 요청 ---
-  // (문제에서 제공된 코드 그대로 삽입)
   async function saveData(game, name, score, elapsedTime) {
     const FUNCTION_URL = "https://us-central1-record-f420d.cloudfunctions.net/report";
-
     const requestData = {
-        game,
-        name,
-        score: parseInt(score, 10),
-        elapsedTime: parseInt(elapsedTime, 10)
+      game,
+      name,
+      score: parseInt(score, 10),
+      elapsedTime: parseInt(elapsedTime, 10)
     };
-
     try {
-        const response = await fetch(FUNCTION_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestData)
-        });
-
-        const responseData = await response.json();
-
-        if (response.ok) {
-            document.getElementById('response').innerText = 
-                "성공: " + JSON.stringify(responseData, null, 2);
-        } else {
-            document.getElementById('response').innerText = 
-                "오류: " + JSON.stringify(responseData, null, 2);
-        }
+      const response = await fetch(FUNCTION_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+      });
+      const responseData = await response.json();
+      if (response.ok) {
+        document.getElementById('response').innerText = "성공: " + JSON.stringify(responseData, null, 2);
+      } else {
+        document.getElementById('response').innerText = "오류: " + JSON.stringify(responseData, null, 2);
+      }
     } catch (error) {
-        console.error('요청 실패:', error);
-        document.getElementById('response').innerText = 
-            "네트워크 오류: " + error.message;
+      console.error('요청 실패:', error);
+      document.getElementById('response').innerText = "네트워크 오류: " + error.message;
     }
   }
 
   // --- 배열 무작위 섞기 ---
-  function shuffleArray(arr){
-    for(let i=arr.length-1; i>0; i--){
-      const j = Math.floor(Math.random()*(i+1));
+  function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   }
-
 </script>
 </body>
 </html>
